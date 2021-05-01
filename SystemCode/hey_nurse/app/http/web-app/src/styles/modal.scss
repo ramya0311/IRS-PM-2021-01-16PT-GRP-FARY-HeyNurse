@@ -1,0 +1,183 @@
+@import 'variables.scss';
+
+$gutter: 15px;
+$gutter-half: $gutter/2;
+$gutter-quarter: $gutter/4;
+
+.modal-backdrop {
+  z-index: auto;
+}
+
+.modal-dialog {
+  /*
+    For some reason icon-color mixin is not working in this global less. So working around it.
+  */
+  .icon-fill {
+    fill: #222;
+  }
+  .icon-stroke {
+    stroke: #222;
+  }
+
+  @media (min-width: $screen-sm) and (max-width: $screen-md-max) {
+    top:  8vh;
+  }
+}
+
+.modal-dialog .modal-content {
+  border-radius: 3px !important;
+  box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.35);
+  font-size: 13px;
+
+  @media (max-width: $screen-xs-max) {
+    font-size: 14px;
+  }
+
+  .modal-header {
+    button.close {
+      .icon-stroke {
+        stroke: black;
+      }
+    }
+
+    button.close-hidden{
+      background: transparent;
+      border: 0;
+      -webkit-appearance: none;
+      outline:none;
+      float: right;
+    }
+
+    background: white;
+    padding: $gutter $gutter $gutter-half $gutter;
+  }
+
+  .modal-body {
+    background: #f8f8f8;
+
+    @media (min-width: $screen-sm) {
+      padding: 0px $gutter 20px $gutter;
+
+      .form-subsection {
+        margin-left: -$gutter;
+        margin-right: -$gutter;
+        padding-left: $gutter;
+        padding-right: $gutter;
+      }
+    }
+
+    padding: 0 $gutter $gutter-half $gutter;
+
+    modal-content {
+      > :first-child:not(nav) {
+        padding-top: 20px;
+      }
+    }
+  }
+
+  .modal-footer {
+    padding: 20px $gutter;
+    background: #f8f8f8;
+
+    button {
+      text-transform: capitalize;
+    }
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  small {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    word-wrap: break-word;
+  }
+
+  .form-control {
+    font-size: 16px;
+  }
+
+  nav {
+    background-color: white;
+    padding: 10px 10px 0;
+    margin-left: -$gutter;
+    margin-right: -$gutter;
+
+    &:first-child {
+      margin-top: 0px;
+    }
+  }
+
+  form {
+    padding-top: 20px;
+  }
+
+  .additional-control {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: $screen-sm) {
+  .modal-dialog {
+    margin: 30px auto 120px auto !important;
+
+    .modal-content {
+      .modal-header {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        padding: $gutter;
+      }
+
+      .modal-body {
+        padding: 0 $gutter $gutter $gutter;
+      }
+
+      nav {
+        margin-left: -$gutter;
+        margin-right: -$gutter;
+      }
+
+      .modal-footer {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        padding: 20px $gutter;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md) {
+  .modal-dialog .modal-content {
+    .form-control {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .modal-dialog {
+    margin: 0px !important;
+
+    .modal-content {
+      font-size: 14px;
+    }
+  }
+
+  body.modal-open .single-module {
+    overflow-y: visible !important;
+  }
+
+  body.modal-open aside {
+    z-index: auto !important;
+  }
+}
+
+route-modal.lg .modal .modal-dialog,
+modal.lg .modal .modal-dialog {
+  width: 1120px;
+  max-width: 100%;
+}

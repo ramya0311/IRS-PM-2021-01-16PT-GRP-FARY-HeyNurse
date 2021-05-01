@@ -1,0 +1,69 @@
+.display-flex {
+    display: flex;
+    .flex-1 {
+        flex: 1;
+    }
+    .flex-2 {
+        flex: 2;
+    }
+}
+
+.box-container {
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    height: 60vh !important;
+    width: 60vh !important;
+}
+
+.content-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+.user-info {
+    padding: 20px;
+    width: 100%;
+}
+
+.custom-btn {
+    float: right;
+    margin: 15px 0 0 20px;
+    i,
+    .btn-default {
+        margin-right: 10px;
+    }
+}
+
+.addUser {
+    flex: 2;
+}
+
+.header {
+    flex: 1;
+    margin: 20px 30px;
+}
+
+.header-container {
+    display: flex;
+    width: 100%;
+}
+
+.modal-title {
+    flex: 1;
+}
+
+.flex-column {
+    flex-direction: column;
+    .form-padding {
+        padding: 10px 20px;
+    }
+}

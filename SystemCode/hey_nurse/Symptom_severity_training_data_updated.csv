@@ -1,0 +1,397 @@
+Symptom,weight
+itching,1
+skin  rash,2
+nodal  skin  eruptions,2
+continuous  sneezing,2
+shivering,3
+chills,1
+joint  pain,1
+stomach  pain,3
+acidity,1
+ulcers  on  tongue,1
+muscle  wasting,1
+vomiting,3
+burning  micturition,2
+spotting  urination,2
+fatigue,2
+weight  gain,1
+anxiety,1
+cold  hands  and  feets,2
+mood  swings,1
+weight  loss,1
+restlessness,1
+lethargy,1
+patches  in  throat,2
+irregular  sugar  level,2
+cough,1
+high  fever,3
+sunken  eyes,1
+breathlessness,3
+sweating,1
+dehydration,3
+indigestion,2
+headache,2
+yellowish  skin,2
+dark  urine,2
+nausea,3
+loss  of  appetite,1
+pain  behind  the  eyes,2
+back  pain,2
+constipation,1
+abdominal  pain,3
+diarrhoea,3
+mild  fever,2
+yellow  urine,1
+yellowing  of  eyes,2
+acute  liver  failure,3
+fluid  overload,3
+swelling  of  stomach,3
+swelled  lymph  nodes,3
+malaise,1
+blurred  and  distorted  vision,3
+phlegm,3
+throat  irritation,1
+redness  of  eyes,1
+sinus  pressure,1
+runny  nose,1
+congestion,1
+chest  pain,3
+weakness  in  limbs,3
+fast  heart  rate,3
+pain  during  bowel  movements,2
+pain  in  anal  region,2
+bloody  stool,2
+irritation  in  anus,2
+neck  pain,2
+dizziness,3
+cramps,2
+bruising,2
+obesity,1
+swollen  legs,1
+swollen  blood  vessels,2
+puffy  face  and  eyes,2
+enlarged  thyroid,2
+brittle  nails,1
+swollen  extremeties,2
+excessive  hunger,1
+extra  marital  contacts,1
+drying  and  tingling  lips,1
+slurred  speech,2
+knee  pain,1
+hip  joint  pain,1
+muscle  weakness,1
+stiff  neck,1
+swelling  joints,2
+movement  stiffness,2
+spinning  movements,3
+loss  of  balance,3
+unsteadiness,2
+weakness  of  one  body  side,2
+loss  of  smell,2
+bladder  discomfort,1
+foul  smell  ofurine,2
+continuous  feel  of  urine,1
+passage  of  gases,1
+internal  itching,1
+toxic  look  (typhos),2
+depression,2
+irritability,1
+muscle  pain,1
+altered  sensorium,1
+red  spots  over  body,2
+belly  pain,2
+abnormal  menstruation,2
+dischromic  patches,2
+watering  from  eyes,2
+increased  appetite,1
+polyuria,1
+mucoid  sputum,2
+rusty  sputum,2
+lack  of  concentration,1
+visual  disturbances,1
+receiving  blood  transfusion,3
+coma,3
+stomach  bleeding,3
+distention  of  abdomen,2
+blood  in  sputum,2
+painful  walking,1
+silver  like  dusting,2
+inflammatory  nails,1
+blister,1
+red  sore  around  nose,1
+yellow  crust  ooze,3
+pain,1
+very  pain,3
+bleeding,3
+toilet  washroom  bathroom,1
+food  lunch  dinner  breakfast  tea,1
+dizzy,2
+injection,1
+faint,3
+not  well,1
+unwell,1
+breathless,3
+short  breathe,3
+water,1
+dressing,1
+change clothes,1
+need paper ,1
+"ahhhhhhh, I feel pain.",2
+I need to go to toilet.,1
+Im bleeding.,3
+I want to have some water.,1
+Im very pain!,3
+i have never been so pain.,3
+"help, i fall down.",3
+i feel so cold.,1
+aircon ariconditioning is not working,1
+I want to get down the bed,1
+I want discharge,1
+when is doctor coming,1
+I am shaking uncontrollably ,3
+I grow rashes,1
+I am urgent,3
+I need go toilet now,3
+I can not sleep,1
+I can not see,2
+my vision is blur,3
+I am feverish,2
+"my bandage, plaster, dressing fell off",1
+"I need sanitary pad, toilet paper, change fit sheets",1
+"i want to change underwear, bed sheets, clothes",1
+I cannot feel my leg,3
+diffuculty breathing,3
+shortness of breath,3
+bleeding not stopping,3
+choke,3
+coughing up blood,3
+"sudden, sharp, pain",3
+asthma,3
+numb,2
+"wound swelling, pus, red lines",2
+I can not breathe,3
+should I eat my medicine now,1
+i feel very hot,2
+help me go toilet now urgent,3
+i fell down,3
+i want to drink water,1
+I want to get up,1
+my things drop,1
+help me pick up my things,1
+i need extra towel,1
+I am very urgent,3
+water leakage,1
+toilet choke,1
+sewer clogged,1
+floor is wet,1
+my head is injured,3
+I need to pass motion,1
+i need to unrine,1
+I wetted my bed,2
+i need to poo,1
+i need to pee,1
+i have heartache,3
+i have heart pain,3
+I feel like dying,3
+im going to die,3
+i have high pain,3
+my pain is unbearable,3
+my heart is beating very fast,3
+itching,1
+skin  rash,2
+nodal  skin  eruptions,2
+continuous  sneezing,2
+shivering,3
+chills,1
+joint  pain,1
+stomach  pain,3
+acidity,1
+ulcers  on  tongue,1
+muscle  wasting,1
+vomiting,3
+burning  micturition,2
+spotting  urination,2
+fatigue,2
+weight  gain,1
+anxiety,1
+cold  hands  and  feets,2
+mood  swings,1
+weight  loss,1
+restlessness,1
+lethargy,1
+patches  in  throat,2
+irregular  sugar  level,2
+cough,1
+high  fever,3
+sunken  eyes,1
+breathlessness,3
+sweating,1
+dehydration,3
+indigestion,2
+headache,2
+yellowish  skin,2
+dark  urine,2
+nausea,3
+loss  of  appetite,1
+pain  behind  the  eyes,2
+back  pain,2
+constipation,1
+abdominal  pain,3
+diarrhoea,3
+mild  fever,2
+yellow  urine,1
+yellowing  of  eyes,2
+acute  liver  failure,3
+fluid  overload,3
+swelling  of  stomach,3
+swelled  lymph  nodes,3
+malaise,1
+blurred  and  distorted  vision,3
+phlegm,3
+throat  irritation,1
+redness  of  eyes,1
+sinus  pressure,1
+runny  nose,1
+congestion,1
+chest  pain,3
+weakness  in  limbs,3
+fast  heart  rate,3
+pain  during  bowel  movements,2
+pain  in  anal  region,2
+bloody  stool,2
+irritation  in  anus,2
+neck  pain,2
+dizziness,3
+cramps,2
+bruising,2
+obesity,1
+swollen  legs,1
+swollen  blood  vessels,2
+puffy  face  and  eyes,2
+enlarged  thyroid,2
+brittle  nails,1
+swollen  extremeties,2
+excessive  hunger,1
+extra  marital  contacts,1
+drying  and  tingling  lips,1
+slurred  speech,2
+knee  pain,1
+hip  joint  pain,1
+muscle  weakness,1
+stiff  neck,1
+swelling  joints,2
+movement  stiffness,2
+spinning  movements,3
+loss  of  balance,3
+unsteadiness,2
+weakness  of  one  body  side,2
+loss  of  smell,2
+bladder  discomfort,1
+foul  smell  ofurine,2
+continuous  feel  of  urine,1
+passage  of  gases,1
+internal  itching,1
+toxic  look  (typhos),2
+depression,2
+irritability,1
+muscle  pain,1
+altered  sensorium,1
+red  spots  over  body,2
+belly  pain,2
+abnormal  menstruation,2
+dischromic  patches,2
+watering  from  eyes,2
+increased  appetite,1
+polyuria,1
+mucoid  sputum,2
+rusty  sputum,2
+lack  of  concentration,1
+visual  disturbances,1
+receiving  blood  transfusion,3
+coma,3
+stomach  bleeding,3
+distention  of  abdomen,2
+blood  in  sputum,2
+painful  walking,1
+silver  like  dusting,2
+inflammatory  nails,1
+blister,1
+red  sore  around  nose,1
+yellow  crust  ooze,3
+pain,1
+very  pain,3
+bleeding,3
+toilet  washroom  bathroom,1
+food  lunch  dinner  breakfast  tea,1
+dizzy,2
+injection,1
+faint,3
+not  well,1
+unwell,1
+breathless,3
+short  breathe,3
+water,1
+dressing,1
+change clothes,1
+need paper ,1
+"ahhhhhhh, I feel pain.",2
+I need to go to toilet.,1
+Im bleeding.,3
+I want to have some water.,1
+Im very pain!,3
+i have never been so pain.,3
+"help, i fall down.",3
+i feel so cold.,1
+aircon ariconditioning is not working,1
+I want to get down the bed,1
+I want discharge,1
+when is doctor coming,1
+I am shaking uncontrollably ,3
+I grow rashes,1
+I am urgent,3
+I need go toilet now,3
+I can not sleep,1
+I can not see,2
+my vision is blur,3
+I am feverish,2
+"my bandage, plaster, dressing fell off",1
+"I need sanitary pad, toilet paper, change fit sheets",1
+"i want to change underwear, bed sheets, clothes",1
+I cannot feel my leg,3
+diffuculty breathing,3
+shortness of breath,3
+bleeding not stopping,3
+choke,3
+coughing up blood,3
+"sudden, sharp, pain",3
+asthma,3
+numb,2
+"wound swelling, pus, red lines",2
+I can not breathe,3
+should I eat my medicine now,1
+i feel very hot,2
+help me go toilet now urgent,3
+i fell down,3
+i want to drink water,1
+I want to get up,1
+my things drop,1
+help me pick up my things,1
+i need extra towel,1
+I am very urgent,3
+water leakage,1
+toilet choke,1
+sewer clogged,1
+floor is wet,1
+my head is injured,3
+I need to pass motion,1
+i need to unrine,1
+I wetted my bed,2
+i need to poo,1
+i need to pee,1
+i have heartache,3
+i have heart pain,3
+my heart is beating very fast,3
+I feel like dying,3
+im going to die,3
+i have high pain,3
+my pain is unbearable,3

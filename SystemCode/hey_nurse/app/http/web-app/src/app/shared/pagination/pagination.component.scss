@@ -1,0 +1,21 @@
+ul.pagination li.disabled a {
+  background: transparent;
+  border-top: none;
+  border-bottom: none;
+}
+
+.view-summary {
+  margin-top: 10px;
+  display: flex;
+
+  > span {
+    padding: 0.2em 1em;
+    line-height: 1;
+    border-left: solid 1px #ccc;
+
+    &:first-child {
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+}

@@ -1,0 +1,98 @@
+h1 {
+    column-width: 10cm;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.custom-btn {
+    font-size: 14px;
+    width: 66px;
+    height: 35px;
+    padding: 0;
+}
+
+.display-flex {
+    display: flex;
+    div {
+        padding: 10px;
+    }
+}
+
+.flex {
+    display: flex;
+    .flex-1 {
+       flex: 1; 
+    }
+    .flex-2 {
+        flex: 2; 
+     }
+     .flex-3 {
+        flex: 3; 
+     }
+     .flex-4 {
+        flex: 4; 
+     }
+}
+
+.modal-title {
+    flex: 1;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.padding-10 {
+    text-align: center;
+    padding: 10px;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
+}
+
+.box-container {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 30px !important;
+    overflow-y: auto;
+}
+
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        background-color: orange;
+    }
+}
+
+.no-content {
+    padding: 2em;
+    font-size: 25px;
+    text-align: center;
+    color: grey;
+}
+
+@media screen and (max-width: 991px) {
+    .display-flex{
+        flex-direction: column;
+    }
+
+    .lc-block {
+        width: 90vw!important;
+        min-width: 520px;
+    }
+
+    
+}

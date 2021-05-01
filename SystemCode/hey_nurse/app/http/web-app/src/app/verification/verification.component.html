@@ -1,0 +1,19 @@
+<div class="lc-block box-container display-flex">
+    <div class="flex-1 content-div">
+        <div *ngIf="isLoading" class="display spinner">
+            <spinner></spinner>
+        </div>
+        <div *ngIf="!isLoading && verified" class="display text">
+            <h4 class="margin-5">Email verification successful. Please Login to contiue</h4>
+        </div>
+        <div *ngIf="!isLoading && !verified" class="display text">
+            <h4 class="margin-5">Your account is not activated. Please verify your email by clicking on the link in your verification email.</h4>
+
+            <div class="margin-5">
+                <p>Did not receive an email?</p>
+                <h6>Please contact your admin to get the verification email again</h6>
+            </div>
+        </div>
+    </div>
+
+</div>

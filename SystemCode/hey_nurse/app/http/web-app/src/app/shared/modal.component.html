@@ -1,0 +1,27 @@
+<div class="modal"
+     tabindex="-1"
+     role="dialog"
+     #modalRoot
+     (keydown.esc)="closeOnEscape ? close() : 0"
+     [ngClass]="{ in: isOpened, fade: isOpened }"
+     [ngStyle]="{ display: isOpened ? 'block' : 'none' }"
+     (click)="closeOnOutsideClick ? close() : 0">
+    <div *ngIf="backdrop" class="modal-backdrop fade in"></div>
+    <div [class]="'modal-dialog ' + modalClass" (click)="preventClosing($event)">
+        <div class="modal-content" tabindex="0" *ngIf="isOpened">
+            <div class="modal-header">
+                <button *ngIf="!hideCloseButton" type="button" class="close" data-dismiss="modal" [attr.aria-label]="cancelButtonLabel || 'Close'" (click)="close()"><icon name="close"></icon></button>
+                <h4 class="modal-title" *ngIf="title" [innerHTML]="title"></h4>
+                <ng-content select="modal-header"></ng-content>
+            </div>
+            <div class="modal-body">
+                <ng-content select="modal-content"></ng-content>
+            </div>
+            <div class="modal-footer">
+                <ng-content select="modal-footer"></ng-content>
+                <button *ngIf="cancelButtonLabel" type="button" class="btn btn-default" data-dismiss="modal" (click)="close()">{{ cancelButtonLabel }}</button>
+                <button *ngIf="submitButtonLabel" type="button" class="btn btn-primary" (click)="onSubmit.emit(undefined)">{{ submitButtonLabel }}</button>
+            </div>
+        </div>
+    </div>
+</div>

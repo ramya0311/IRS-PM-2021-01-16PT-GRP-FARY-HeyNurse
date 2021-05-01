@@ -1,0 +1,28 @@
+<route-modal>
+    <modal-header class="display-flex">
+        <h4 class="modal-title">Change Password</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    </modal-header>
+    <modal-content>
+        <form [formGroup]="passwordForm">
+            <div class="form-group display-flex">
+                <div><i class="fa fa-envelope"></i></div>
+                <input type="text" class="form-control" placeholder="Email" formControlName="email">
+            </div>
+            <div class="form-group display-flex">
+                <div><i class="fa fa-shield"></i></div>
+                <input type="password" class="form-control" placeholder="Password" formControlName="password">
+            </div>
+            <div class="form-group display-flex">
+                <div><i class="fa fa-lock"></i></div>
+                <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword">
+            </div>
+        </form>
+        <div class="padding-10">
+            <a (click)="redirectToLogin()">Login</a>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary btn-block btn-lg" (click)="updatePassword()">Change</button>
+        </div>
+    </modal-content>
+</route-modal>

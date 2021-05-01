@@ -1,0 +1,406 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+.form-horizontal,
+.form {
+  .form-section {
+    margin-bottom: 60px;
+
+    .form-section-header {
+      font-size: 11px;
+      color: $ghosted-text-color;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .form-subsection {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: $background-form-subsection;
+    margin-bottom: 2px;
+  }
+
+  .btn-group label.btn {
+    text-transform: none;
+    box-shadow: none;
+    border: 1px solid $border-color-light-grey;
+
+    input[type="radio"] {
+      display: none;
+    }
+  }
+
+  form-group,
+  .form-group {
+    &:not(:first-child) {
+      margin-top: 15px;
+    }
+
+    margin-bottom: 15px;
+    display: flex;
+
+    .form-group-label {
+      flex: 1;
+      padding-right: 10px;
+    }
+
+    .form-group-field {
+      flex: 3.8;
+    }
+
+    &.vertical {
+      display: block;
+    }
+
+    @media screen and (max-width: $screen-xs-max) {
+      display: block;
+    }
+
+    .col-form-label {
+      margin-top: 0.6em;
+    }
+
+    .required {
+      color: $brand-danger;
+    }
+
+    label {
+      font-weight: 400;
+    }
+
+    input.single-digit {
+      display: inline-block;
+      width: 70px;
+      text-align: center;
+      margin-right: 10px;
+    }
+
+    input.triple-digit {
+      display: inline-block;
+      width: 100px;
+      text-align: center;
+      margin-right: 10px;
+    }
+
+    select {
+      max-width: 310px;
+    }
+
+    datetime-picker {
+      display: block;
+      max-width: 310px;
+    }
+  }
+
+  .control-label {
+    font-size: 13px;
+  }
+
+  .form-control-static {
+    color: $ghosted-text-color;
+  }
+
+  .help-block {
+    font-size: 10px;
+  }
+
+  .to-label {
+    font-weight: 600;
+    text-align: center;
+    padding: 7px;
+  }
+
+  .form-control {
+    padding: 0 $padding-base-horizontal+1;
+  }
+
+  textarea.form-control {
+    padding: $padding-base-vertical+1 $padding-base-horizontal;
+  }
+
+  .form-control:hover:not(select),
+  .form-control:focus:not(select),
+  .has-error .form-control {
+    border-width: 2px;
+    padding: $padding-base-vertical $padding-base-horizontal;
+  }
+
+  input[type=date].form-control:hover,
+  input[type=time].form-control:hover {
+    padding: 0 12px;
+  }
+}
+
+
+.invalid-field {
+  border: 1px solid #C82128;
+  border-radius: 3px;
+}
+
+.validation-error {
+  margin-top: 5px;
+  color: $alert-danger-text;
+  font-weight: 600;
+}
+
+.message-base {
+  margin-top: 5px;
+  border-radius: 3px;
+  font-size: 10px;
+  padding: 5px 10px 5px 10px;
+  margin-bottom: 5px;
+  float: left;
+  display: block;
+  width: 100%;
+}
+
+.danger-message {
+  @extend .message-base;
+
+  color: #C82128;
+  background: #F9E7E8;
+}
+
+.success-message {
+  @extend .message-base;
+
+  background: $state-success-bg;
+  color: $state-success-text;
+}
+
+.warning-message {
+  @extend .message-base;
+
+  background: $state-warning-bg;
+  color: $state-warning-text;
+}
+
+.toggler {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  position: relative;
+  width: 70px;
+  height: 30px;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: 400;
+  color: white;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  input {
+    text-indent: -9999px;
+  }
+
+  input + .knob {
+    display: block;
+    position: absolute;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
+    background: #bbbbbb;
+    color: white;
+    transition: all 0.1s linear;
+    padding: 0;
+    z-index: 200;
+  }
+
+  input + .knob:after {
+    display: block;
+    content: ' ';
+    position: absolute;
+    left: 2px;
+    bottom: 2px;
+    top: 2px;
+    width: calc(50% - 3px);
+    background: white;
+    border-radius: 3px;
+    border: 1px solid #ECECEC;
+    transition: all 0.1s linear;
+    z-index: 210;
+  }
+
+  input:checked + .knob {
+    background: $active-green;
+    content: 'Yes'
+  }
+
+  input:checked + .knob:after {
+    left: calc(50%);
+  }
+
+  span.on {
+    line-height: 30px;
+    position: absolute;
+    width: 50%;
+    left:0;
+    top:0;
+    bottom:0;
+    z-index: 201;
+  }
+
+  span.off {
+    line-height: 30px;
+    position: absolute;
+    width: 50%;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index: 201;
+  }
+}
+
+.radio {
+  @include make-radio(20px, 10px);
+}
+
+label.checkbox {
+  @include make-checkbox(20px);
+}
+
+.label {
+  padding: .4em .6em .4em;
+
+  &.label-outline {
+    color: $ghosted-text-color;
+    border: 1px solid darken($border-color-light-grey, 5%);
+    font-size: 10px;
+    font-weight: normal;
+    border-radius: 3px;
+  }
+}
+
+.form,
+.form-horizontal {
+  form-group,
+  .form-group {
+    .control-label {
+      text-align: left;
+      font-weight: 600;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.inline-input {
+  padding-right: 10px;
+}
+
+.form-control-feedback {
+  line-height: 34px !important; /* the font declaration in .fa sometimes overrides the line-height. this here is waiting for a better solution */
+  &.grey {
+    color: $ghosted-text-color;
+  }
+}
+
+.input-with-search {
+  position: relative;
+  display: inline-block;
+  input::-ms-clear {
+    display: none;
+  }
+}
+
+form-group .alert,
+.form-group .alert {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.help-block-checkbox {
+  margin-left: 35px;
+}
+
+.tag-list-item {
+  .label,.label-primary{
+
+  display: inline-block;
+  font-size: 14px;
+  margin: 10px 10px 0 0;
+
+  span {
+    margin-right: 10px;
+  }
+
+  a>* {
+    color: white;
+    cursor: pointer;
+  }
+ }
+}
+
+.field-with-button {
+  display: flex;
+
+  > :first-child {
+    flex: 2;
+  }
+
+  > .btn {
+    flex: 1;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .inline-input {
+    padding-right: 0;
+    margin-bottom: 10px;
+  }
+
+  input[type=text], input[type=email], input[type=password], textarea, .cke_contents {
+    font-size: 16px; /* mobile safari zooms if inputs have font-size < 16px */
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .form-tool-layout {
+    .form-group,
+    form-group {
+      .form-field-group,
+      .field {
+        padding-right: $unit-column;
+      }
+    }
+  }
+}
+
+.modal {
+  form {
+    .form-section {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.secret-field {
+  position: relative;
+
+  icon[name="eye"],
+  icon[name="invisible"] {
+    @include icon-color($ghosted-text-color);
+
+    margin-top: 8px;
+    margin-right: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    line-height: 32px;
+    text-align: center;
+  }
+}
+
+.buttons .btn:not(:last-child) {
+  margin-right: 0.5em;
+}
+
+ngx-treeview-item .form-check-input {
+  margin-right: 4px;
+}

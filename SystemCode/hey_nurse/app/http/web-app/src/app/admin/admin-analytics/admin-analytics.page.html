@@ -1,0 +1,55 @@
+<div class="lc-block box-container">
+    <spinner *ngIf="isLoading"></spinner>
+    <div *ngIf="!isLoading">
+        <div>
+            <h4 class="padding-10 capitalize"> {{selectedUser.user_name}} Statistics</h4>
+            <div class="padding-10">
+                <label>View Stats for: </label>
+                <select [(ngModel)]="filterBy" class="margin-10" (ngModelChange)="getStats()">
+                   <option value="today">Today</option>
+                   <option value="week">Last 7 days</option>
+                   <option value="month">Last 30 days</option>
+               </select>
+            </div>
+        </div>
+        <div class="graph-content" *ngIf="!isLoading && results && results.length">
+            <ngx-charts-line-chart [view]="view" [scheme]="colorScheme" [legend]="legend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxis]="xAxis" [yAxis]="yAxis" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [timeline]="timeline"
+                [results]="multi">
+            </ngx-charts-line-chart>
+        </div>
+        <div *ngIf="!isLoading && (!results || (results && !results.length))" class="no-content">
+            There are no records.
+        </div>
+    </div>
+    <div *ngIf="!isLoading && results  && results.length">
+        <div class="padding-10">
+            <div class="display-flex">
+                <h4 class="capitalize flex-1">
+                    Statistics for
+                    <span *ngIf="filterBy === 'today'">Today</span>
+                    <span *ngIf="filterBy === 'week'">Last 7 days</span>
+                    <span *ngIf="filterBy === 'month'">Last 30 days</span>
+                </h4>
+                <button (click)="exportToExcel()" class="btn btn-primary">Export To Excel</button><br>
+            </div>
+            <div class="align-right">
+                <small>*The date records in the excel file will follow UTC timezone</small>
+            </div>
+
+        </div>
+        <div *ngIf="!isLoading && results">
+            <pagination [pages]="pages" [offset]="offset" [pageSize]="limit" (change)="setStart($event)"></pagination>
+            <div class="row padding-10">
+                <div class="col-xs-2">S No.</div>
+                <div class="col-xs-4">Date</div>
+                <div class="col-xs-2">No. of requests</div>
+            </div>
+            <div class="row padding-10" *ngFor="let result of pagedItems; let i = index">
+                <div class="col-xs-2">{{i+1}}</div>
+                <div class="col-xs-4" *ngIf="filterBy === 'today'">{{result.name | moment: 'DD/MM/YYYY hh:mm a'}}</div>
+                <div class="col-xs-4" *ngIf="filterBy !== 'today'">{{result.name | moment: 'DD/MM/YYYY'}}</div>
+                <div class="col-xs-2">{{result.value}}</div>
+            </div>
+        </div>
+    </div>
+</div>

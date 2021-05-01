@@ -1,0 +1,144 @@
+@import 'variables.scss';
+
+@mixin make-radio($size:20px, $margin: 10px) {
+    position: relative;
+    overflow: hidden;
+    padding: 7px 1px;
+    input {
+        position: absolute!important;
+        left: -100%;
+    }
+    input + span {
+        display: inline-block;
+        font-size: 12px;
+        vertical-align: middle;
+        min-width: $size+1px;
+        cursor: pointer;
+    }
+    input[disbled] + span {
+        cursor: not-allowed;
+    }
+    input + span:before {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        content: '';
+        border-radius: 100%;
+        width: $size;
+        height: $size;
+        max-width: $size;
+        max-height: $size;
+        margin-right: $margin;
+        color: white;
+        background: white;
+        box-shadow: 0px 0px 0px 1px #cccccc;
+        margin-top: 19px-$size;
+    }
+    input[disabled] + span {
+        cursor: not-allowed;
+    }
+    input + span:before {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        content: '';
+        border-radius: 100%;
+        width: $size;
+        height: $size;
+        max-width: $size;
+        max-height: $size;
+        margin-right: $margin;
+        color: white;
+        background: white;
+        box-shadow: 0px 0px 0px 1px #cccccc;
+        margin-top: 19px-$size;
+    }
+    input + span:before {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        content: '';
+        border-radius: 100%;
+        width: $size;
+        height: $size;
+        max-width: $size;
+        max-height: $size;
+        margin-right: $margin;
+        color: white;
+        background: white;
+        box-shadow: 0px 0px 0px 1px #cccccc;
+        margin-top: 19px-$size;
+    }
+  input:checked + span:before {
+        border: solid 5px white;
+        background: $active-green;
+    }
+  input[disabled]:checked + span:before {
+        background: $ghosted-text-color;
+    }
+
+}
+
+@mixin make-checkbox($size) {
+    position: relative;
+    overflow: hidden;
+    padding: 2px;
+    font-weight: 400;
+    margin: 0;
+    /*The html to use this checkbox goes like this:
+    <label class="checkbox"><input type="checkbox"><span>The text you want in the label</span></label>*/
+    &:hover {
+        cursor: pointer;
+    }
+    &.disabled {
+        cursor: default;
+    }
+    input {
+        position: absolute !important;
+        pointer-events: none;
+        opacity: 0;
+    }
+    input + span {
+        display: block;
+        font-size: 12px;
+        overflow: hidden;
+        padding: 1px 0 0 1px;
+        min-width: $size+1px;
+    }
+    input + span:before {
+        position: relative;
+        display: block;
+        float: left;
+        content: ' ';
+        border-radius: 3px;
+        width: $size;
+        height: $size;
+        margin-right: 10px;
+        color: white;
+        background: white;
+        border: solid 1px #cccccc;
+    }
+    input.indeterminate + span:before,input:checked + span:before {
+        content: ' ';
+        font-size: 1.4em;
+        padding: 1px;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $active-green;
+        background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2213%22%20viewBox%3D%222%203%2016%2013%22%3E%3Cpolyline%20points%3D%223.5%2011%206.9%2014.4%2016.4%204.9%22%20style%3D%22fill%3Anone%3Bstroke-width%3A2%3Bstroke%3A%23FFF%22%2F%3E%3C%2Fsvg%3E');
+        border: solid 1px $active-green;
+    }
+    input.indeterminate + span:before {
+        background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2213%22%20viewBox%3D%222%203%2018%2013%22%3E%3Cpolyline%20points%3D%223%2010%2017%2010%22%20style%3D%22fill%3Anone%3Bstroke-width%3A2%3Bstroke%3A%23FFF%22%2F%3E%3C%2Fsvg%3E');
+    }
+}
+
+@mixin icon-color($color) {
+    ::ng-deep .icon-fill {
+        fill: $color!important;
+    }
+    ::ng-deep .icon-stroke {
+        stroke: $color !important;
+    }
+}

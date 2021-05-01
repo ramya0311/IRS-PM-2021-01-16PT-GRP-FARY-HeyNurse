@@ -1,0 +1,97 @@
+<div class="lc-block box-container display-flex">
+    <div class="flex-1">
+        <div class="addUser">
+            <button class="btn btn-primary btn-sm" (click)="openModal()"><i class="fa fa-plus"></i>Add User</button>
+        </div>
+        <ul class="nav nav-tabs">
+            <li [class.active]="isAdmin !== true"><a (click)="isAdmin = false;loadUsers()">Nurses</a></li>
+            <li [class.active]="isAdmin === true"><a (click)="isAdmin = true;loadUsers()">Admins</a></li>
+        </ul>
+        <spinner *ngIf="isLoading"></spinner>
+        <div *ngIf="!isLoading && (!users || (users && !users.length))" class="no-content">
+            There are no users.
+        </div>
+        <div *ngIf="!isLoading && (users && users.length)">
+            <pagination [pages]="pages" [offset]="offset" [pageSize]="limit" (change)="setStart($event)"></pagination>
+            <div class="display-flex">
+                <div class="flex-1">
+                    S.No
+                </div>
+                <div class="flex-3">
+                    Name / Employee ID
+                </div>
+                <div class="flex-4">
+                    Email
+                </div>
+                <div class="flex-2">
+                    Status
+                </div> 
+                <div class="flex-2">
+                    
+                </div>
+            </div>
+            <div class="display-flex" *ngFor="let user of users;let i = index">
+                <div class="flex-1">
+                    {{i+1}}
+                </div>
+                <div class="flex-3">
+                    <a (click)="redirectToAnalytics(user)" *ngIf="isAdmin !== true">{{user.user_name}}</a><br>
+                    <span *ngIf="isAdmin === true">{{user.user_name}}</span><br>
+                    <small>{{user.user_id}}</small>
+                </div>
+                <div class="flex-4">
+                    {{user.email}}
+                </div>
+                <div class="flex-2">
+                    {{user.isActivated? 'Activated': 'Not Activated'}}
+                </div>
+                <div class="flex-2 inline-flex">
+                    <span class="margin-right-10" *ngIf="!user.isActivated"><i class="fa fa-envelope" placement="top" ngbTooltip="Resend Email" (click)="resendEmail(user)"></i></span>
+                    <span class="margin-right-10"><i class="fa fa-trash" placement="top" ngbTooltip="Delete User" (click)="deleteUser(user)"></i></span>
+                    <span class="margin-right-10"><i class="fa fa-pencil" placement="top" ngbTooltip="Edit User" (click)="openModal(user)"></i></span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<modal #userModal>
+    <modal-header class="display-flex">
+        <h4 class="modal-title" *ngIf="!user">Add User</h4>
+        <h4 class="modal-title" *ngIf="user">Edit User</h4>
+        <button type="button" class="close" (click)="closeModal()">&times;</button>
+    </modal-header>
+    <modal-content>
+        <form [formGroup]="addUserForm">
+            <div class="form-group display-flex">
+                <label class="padding-10 flex-1">Name</label>
+                <input type="text" class="form-control flex-2" placeholder="Enter Name" formControlName="user_name">
+            </div>
+            <div class="form-group display-flex">
+                <label class="padding-10 flex-1">Employee ID</label>
+                <input type="text" class="form-control flex-2" placeholder="Enter Name" formControlName="user_id">
+            </div>
+            <div class="form-group display-flex">
+                <label class="padding-10 flex-1">Email</label>
+                <input type="text" class="form-control flex-2" placeholder="Enter Email" formControlName="email">
+            </div>
+            <div class="form-group display-flex">
+                <label class="padding-10 flex-1">Admin User</label>
+                <div class="flex-2">
+                    <label class="switch">
+                        <input type="checkbox" formControlName="isAdmin">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+            </div>
+        </form>
+    </modal-content>
+    <modal-footer>
+        <div class="form-group">
+            <button type="button" class="btn btn-default btn-sm" (click)="closeModal()">Cancel</button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="submit()" [disabled]="!addUserForm.valid">{{user? 'Save User': 'Add User'}}</button>
+        </div>
+    </modal-footer>
+</modal>

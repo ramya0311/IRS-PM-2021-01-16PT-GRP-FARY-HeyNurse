@@ -1,0 +1,117 @@
+<div class="display-flex">
+    <div class="flex-1 lc-block box-container">
+        <h3>New Requests</h3>
+        <div *ngIf="!newRequests || (newRequests && !newRequests.length)" class="no-content">
+            There are no new requests.
+        </div>
+        <div *ngIf="newRequests && newRequests.length">
+            <pagination [pages]="pages" [offset]="skip" [pageSize]="limit" (change)="setStart($event)"></pagination>
+            <div class="flex">
+                <div class="flex-1">Priority</div>
+                <div class="flex-3">Date / Time</div>
+                <div class="flex-4">Message</div>
+                <div class="flex-2">Ward / Room / Bed</div>
+                <div class="flex-1"></div>
+            </div>
+            <div class="flex" *ngFor="let request of newRequests" [class.blink_me]="request.highlight_flag === 1">
+                <div class="flex-1">
+                    <span *ngIf="request.req_class === 3">Urgent</span>
+                    <span *ngIf="request.req_class === 2">Medium</span>
+                    <span *ngIf="request.req_class === 1">Low</span>
+                </div>
+                <div class="flex-3">
+                    {{getLocalTime(request.req_datetime)}}
+                </div>
+                <div class="flex-4">
+                    {{request.req_message}}
+                </div>
+                <div class="flex-2">
+                    {{request.req_src_ward}} / {{request.req_src_room}} / {{request.req_src_bed}}
+                </div>
+
+                <div class="flex-1">
+                    <button class="btn btn-primary custom-btn" (click)="openModal(request._id, 2)">Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-1 lc-block box-container">
+        <ul class="nav nav-tabs">
+            <li [class.active]="currentTab === 'inProgress'"><a (click)="toggleTab('inProgress')">In Progress</a></li>
+            <li [class.active]="currentTab === 'completed'"><a (click)="toggleTab('completed')">Completed</a></li>
+        </ul>
+        <div>
+            <div *ngIf="currentTab === 'inProgress'">
+                <h3>Requests in Progress</h3>
+                <div *ngIf="!inProgressRequests || (inProgressRequests && !inProgressRequests.length)" class="no-content">
+                    There are no requests in progress.
+                </div>
+            </div>
+            <div *ngIf="currentTab === 'completed'">
+                <h3>Completed Requests</h3>
+                <div *ngIf="!inProgressRequests || (inProgressRequests && !inProgressRequests.length)" class="no-content">
+                    There are no completed requests.
+                </div>
+            </div>
+
+            <div *ngIf="(inProgressRequests && inProgressRequests.length)">
+                <pagination [pages]="inProgressPages" [offset]="inProgressSkip" [pageSize]="limit" (change)="setInProgressStart($event)"></pagination>
+                <div class="flex">
+                    <div class="flex-1">Priority</div>
+                    <div class="flex-3">Date/Time</div>
+                    <div class="flex-4">Message</div>
+                    <div class="flex-2">Ward / Room / Bed</div>
+                    <div class="flex-2">
+                        <span *ngIf="currentTab !== 'inProgress'">Completed By</span>
+                    </div>
+                </div>
+
+                <div class="flex" *ngFor="let request of inProgressRequests;let i=index ">
+                    <div class="flex-1">
+                        <span *ngIf="request.req_class === 3">Urgent</span>
+                        <span *ngIf="request.req_class === 2">Medium</span>
+                        <span *ngIf="request.req_class === 1">Low</span>
+                    </div>
+                    <div class="flex-3">
+                        {{getLocalTime(request.req_datetime)}}
+                        <br>
+                        <span *ngIf="currentTab === 'inProgress'"><b>Started By: </b>{{request.req_nurse_id}}</span>
+                    </div>
+                    <div class="flex-4">
+                        {{request.req_message}}
+                    </div>
+                    <div class="flex-2">
+                        {{request.req_src_ward}} / {{request.req_src_room}} / {{request.req_src_bed}}
+                    </div>
+
+                    <div class="flex-2">
+                        <button class="btn btn-danger custom-btn" (click)="openModal(request._id, 3)" *ngIf="currentTab === 'inProgress'">End</button>
+                        <span *ngIf="currentTab !== 'inProgress'">{{request.req_nurse_id}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<modal #nurseModal>
+    <modal-header class="display-flex">
+        <h4 class="modal-title">Nurse Details</h4>
+        <button type="button" class="close" (click)="closeModal()">&times;</button>
+    </modal-header>
+    <modal-content>
+        <form [formGroup]="taskForm">
+            <div class="form-group display-flex">
+                <label class="label-padding flex-1">Nurse ID</label>
+                <input type="text" class="form-control flex-2" placeholder="Enter Your ID" formControlName="req_nurse_id">
+            </div>
+        </form>
+    </modal-content>
+    <modal-footer>
+        <div class="button-container">
+            <button type="button" class="btn btn-default custom-btn" (click)="closeModal()">Close</button>
+            <button type="button" class="btn btn-primary custom-btn" (click)="startTask()">Save</button>
+        </div>
+    </modal-footer>
+</modal>

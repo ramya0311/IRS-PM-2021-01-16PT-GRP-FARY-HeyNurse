@@ -1,0 +1,13 @@
+<nav class="nav-pagination" aria-label="Page navigation" *ngIf="pages.size > 1">
+  <ul class="pagination">
+    <li *ngFor="let page of pageItems" [class.active]="page.start === offset" [class.disabled]="page.isEllipsis">
+      <a *ngIf="page.isEllipsis" (click)="false">&hellip;</a>
+      <a *ngIf="!page.isEllipsis" (click)="change.emit(page.start, $event)">{{page.number}}</a>
+    </li>
+  </ul>
+</nav>
+
+<p class="view-summary" *ngIf="showSummary && !!totalSize">
+  <span i18n>{totalSize, plural, =0 {No {{unit?.plural}}} =1 {1 {{unit?.singular}}} other {{{totalSize}} {{unit?.plural}}}}</span>
+  <span i18n>Viewing {{offset + 1}} - {{end}}</span>
+</p>
