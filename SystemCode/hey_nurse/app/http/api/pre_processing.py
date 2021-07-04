@@ -112,7 +112,7 @@ def pre_processing(inputStr):
     knn.fit(X_train, y_train)
 
 
-    input = inputStr 
+    input = clean_text(inputStr) 
 
     result1=nb.predict([input])
     result2=sgd.predict([input])
